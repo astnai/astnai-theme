@@ -20,16 +20,11 @@ local ansi_reset='\e[0m'
 # ------------------------------------------------------------------------------
 # Custom function to handle path display (removes ~ symbol)
 prompt_path() {
-    local current_path="${PWD/#$HOME/}"
-    if [[ $current_path == "" ]]; then
-        echo ""
-    else
-        echo "$current_path"
-    fi
+    echo "${PWD/#$HOME/}"
 }
 
 # Main prompt: astnai + path
-PROMPT='${text_primary}astnai${text_primary}$(prompt_path)${reset} '
+PROMPT='${text_primary}astnai$(prompt_path)${reset} '
 
 # No right prompt
 RPROMPT=''
@@ -58,8 +53,11 @@ function ls() {
     # Combine: directories first, then files
     items=("${directories[@]}" "${files[@]}")
     
+    # Check if there are items to display
+    [[ ${#items[@]} -eq 0 ]] && return
+    
     # Responsive output with line wrapping
-    local term_width=$(tput cols)
+    local term_width=${COLUMNS:-$(tput cols)}
     local current_line_length=0
     local spacing="  "
     local first_item=true
