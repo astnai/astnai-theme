@@ -2,7 +2,7 @@
 
 A minimal ZSH theme with clean design and smart functionality.
 
-![screenshot](https://i4jauuo5gk.ufs.sh/f/bg1v3x3oGVlZToluMorIFcJiGlxmC1AZbE97LfrvBPpudDay)
+![screenshot](https://i4jauuo5gk.ufs.sh/f/bg1v3x3oGVlZwFhVqpbyEokbUOj65igKaIvfVYeTM20mGPX3)
 
 ## **Features**
 
